@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		span.cls_005{font-family:monospace;font-size:25.1px;font-weight:normal;font-style:normal;text-decoration: none}
+	</style>
+	<script type="text/javascript">
+		function pad(num, size) {
+			var s = "000000000" + num;
+			return s.substr(s.length - size);
+		}
+
+		function getRandomInt(min, max) {
+			min = Math.ceil(min);
+			max = Math.floor(max);
+			return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
+
+		function generateValues() {
+			var characters = 'ABCD';
+			var billNo = characters.charAt(Math.floor(Math.random() * characters.length)) + (Math.floor(Math.random() * 1000) + 1000);
+			var hr = Math.floor(Math.random() * 18 + 5);
+			var min = Math.floor(Math.random() * 59);
+			var den = getRandomInt(729, 735) + "." + getRandomInt(0, 9) + "Kg/Cu.mtr";
+			var vehicleId = document.getElementById("vehicleNo").value;
+			var localId = document.getElementById("localId").value;
+			var nozzleVal = "0" + (Math.floor(Math.random() * 4) + 1);
+			var dateVal = document.getElementById("dateId").value;
+			var timeVal = pad(hr, 2) + ":" + pad(min, 2);
+			var volVal = pad(document.getElementById("volId").value, 8);
+			var rateVal = document.getElementById("rateId").value;
+			var num = document.getElementById("volId").value * document.getElementById("rateId").value;
+			num = num.toFixed(2);
+			var amtVal = pad(num, 8);
+			var fipVal = pad(getRandomInt(1, 2), 2);
+
+			// Create a new HTML page with the generated values
+			var newPageContent = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>Generated Values</title>
+		  <style type="text/css">
+		span.cls_005{font-family:monospace;font-size:25.1px;font-weight:normal;font-style:normal;text-decoration: none}
+	</style>
+	
+        </head>
+        <body>
+		<div style="position:absolute;left:50%;margin-left:-121px;top:0px;width:312px;height:902px;border-style:groove;overflow:hidden;background-color: white;top:2%">
+		  <div style="position:absolute;left:4.56px;top:0.00px" class="cls_002"><span class="cls_002"></span></div>
+		  <div style="position:absolute;left:84.76px;top:100.44px" class="cls_003"><img src="images.png" style="width: 150px;"/></div>
+		  <div style="position:absolute;left:60.80px;top:280.20px" class="cls_005"><span class="cls_005">Welcomes You</span></div>
+
+		  <div style="position:absolute;left:15.36px;top:319.96px" class="cls_006"><span class="cls_006">BDA OUTER RING ROAD <br/>   BELLANDUR BANGALORE,103 <br/>Tel No  : 08025740025</span></div>
+		 
+		  <div style="position:absolute;left:15.36px;top:397.84px" class="cls_006"><span class="cls_006">Receipt No. </span></div>
+		  <div style="position:absolute;left:118.16px;top:397.84px" class="cls_006"><span id="billVal1" class="cls_006">: &nbsp; ${billNo}</span></div>
+		  <div style="position:absolute;left:15.36px;top:416.44px" class="cls_007"><span class="cls_007">Local&#160 &#160ID</span></div>
+		  <div style="position:absolute;left:118.80px;top:416.44px" class="cls_007"><span id="localVal" class="cls_007">: &nbsp; ${localId}</span></div>
+		 
+		  <div style="position:absolute;left:15.36px;top:435.24px" class="cls_006"><span class="cls_006">FIP No.</span></div>
+		  
+		  <div style="position:absolute;left:118.08px;top:435.96px" class="cls_006"><span id="fipVal" class="cls_006">: &nbsp; 02</span></div>
+		  <div style="position:absolute;left:15.36px;top:454.48px" class="cls_006"><span class="cls_006">Nozzle No.</span></div>
+		  <div style="position:absolute;left:118.36px;top:454.96px" class="cls_006"><span id="nozelVal" class="cls_006">: &nbsp; 04</span></div>
+		  <div style="position:absolute;left:15.36px;top:473.24px" class="cls_006"><span class="cls_006">Product</span></div>
+		  <div style="position:absolute;left:118.56px;top:473.48px" class="cls_006"><span class="cls_006">: &nbsp; Petrol</span></div>
+
+		  <div style="position:absolute;left:16.56px;top:500.48px" class="cls_006"><span class="cls_006">Preset Type</span></div>
+		  <div style="position:absolute;left:118.56px;top:500.48px" class="cls_006"><span class="cls_006">: &nbsp; Present Not Entered</span></div> 
+		  
+		  <div style="position:absolute;left:15.84px;top:519.96px" class="cls_006"><span class="cls_006">Rate</span></div>
+		  <div style="position:absolute;left:132.44px;top:519.48px" class="cls_006"><span id="rateVal" class="cls_006">: &nbsp; ${rateVal}</span></div>
+		  <div style="position:absolute;left:15.36px;top:538.44px" class="cls_006"><span class="cls_006">Volume</span></div>
+		  <div style="position:absolute;left:133.20px;top:538.24px" class="cls_006"><span id="volVal" class="cls_006">: &nbsp; ${volVal}</span></div>
+		  <div style="position:absolute;left:14.64px;top:557.68px" class="cls_006"><span class="cls_006">Amount</span></div>
+		  <div style="position:absolute;left:132.48px;top:557.24px" class="cls_006"><span id="amtVal" class="cls_006">: &nbsp; ${amtVal}</span></div>
+		  
+		  <div style="position:absolute;left:14.64px;top:576.68px" class="cls_006"><span class="cls_006">Atot &nbsp;:  &nbsp; 00065749497.69 </span></div>
+		  <div style="position:absolute;left:14.64px;top:595.68px" class="cls_006"><span class="cls_006">Vtot &nbsp;: &nbsp; 0000645510.360</span></div>
+		  
+		  <div style="position:absolute;left:14.64px;top:625.68px" class="cls_006"><span class="cls_006">Vehicle No</span></div>
+		  <div style="position:absolute;left:132.48px;top:625.24px" class="cls_006"><span class="cls_006">: Not Entered</span></div>
+		  <div style="position:absolute;left:15.36px;top:644.12px" class="cls_006"><span class="cls_006">Mobile No</span></div>
+		  <div style="position:absolute;left:132.32px;top:644.72px" class="cls_006"><span class="cls_006">: Not Entered</span></div>
+
+		  <div style="position:absolute;left:15.36px;top:674.24px" class="cls_006"><span class="cls_006">Date</span></div>
+		  <div style="position:absolute;left:60.96px;top:674.52px" class="cls_006"><span id="dateVal" class="cls_006">: &nbsp; ${dateVal}</span></div>
+		  <div style="position:absolute;left:15.96px;top:693.52px" class="cls_006"><span id="dateVal" class="cls_006">Time</span></div>
+		  <div style="position:absolute;left:60.64px;top:693.52px" class="cls_006"><span id="timeVal"  class="cls_006">: &nbsp; ${timeVal}</span></div>
+		  
+		  <div style="position:absolute;left:15.36px;top:730.20px" class="cls_006"><span class="cls_006">CSI No &#160  &#160 :</span></div>
+		  <div style="position:absolute;left:15.36px;top:748.44px" class="cls_006"><span class="cls_006">LSI No &#160  &#160 :</span></div>
+		  <div style="position:absolute;left:15.36px;top:768.12px" class="cls_006"><span class="cls_006">VAT No</span></div>
+		  <div style="position:absolute;left:75.36px;top:766.44px" class="cls_006"><span class="cls_006">&#160 :</span></div>
+		  <div style="position:absolute;left:15.36px;top:790.20px" class="cls_006"><span class="cls_006">ATTENDANT ID</span></div>
+		  <div style="position:absolute;left:141.52px;top:790.20px" class="cls_006"><span class="cls_006"> : Not Available</span></div>
+		  <div style="position:absolute;left:15.36px;top:809.84px" class="cls_006"><span class="cls_006">FCC </span><span class="cls_008">DATE</span></div>
+		  <div style="position:absolute;left:104.00px;top:809.84px" class="cls_006"><span class="cls_006">: Not Available</span></div>
+		  <div style="position:absolute;left:15.36px;top:830.28px" class="cls_008"><span class="cls_008">FCC </span><span class="cls_006">TIME</span></div>
+		  <div style="position:absolute;left:104.00px;top:830.28px" class="cls_006"><span class="cls_006">: Not Available</span></div>
+		  <div style="position:absolute;left:15.36px;top:861.96px" class="cls_006"><span class="cls_006">Thank you! Please Visit Again..</span></div>
+		</div>
+	  </body>
+        </html>
+      `;
+
+			var newTab = window.open();
+			newTab.document.write(newPageContent);
+			newTab.document.close();
+		}
+	</script>
+</head>
+
+<body>
+	<div
+		style="position:absolute;left:10%;padding:2%;margin-left:-121px;top:0px;width:312px;height:300px;border-style:groove;overflow:hidden;background-color: #bbbab5;top:10%;">
+		<div> Vehicle No....<input id="vehicleNo" type="text" value="MH14HN1398" /> </div> </br>
+		<div> Bill No....<input id="billNo" type="text" value="B6923" /> </div> </br>
+		<div> Local Id...<input id="localId" type="text" value="00016414" /> </div> </br>
+		<div> Date........<input id="dateId" type="text" value="31/01/21" /> </div> </br>
+		<div> Time.......<input id="timeId" type="text" value="12:21" /> </div> </br>
+		<div> Vol.........<input id="volId" type="text" value='00004.55' /> </div> </br>
+		<div> Rate........<input id="rateId" type="text" value='101.94' /> </div> </br>
+		<div> <input id="setBut" type="button" value='Set Values' onclick="generateValues()"
+				style='background:green;color:white' /> </div> </br>
+
+	</div>  <body>
+		<div style="position:absolute;left:50%;margin-left:-121px;top:0px;width:312px;height:902px;border-style:groove;overflow:hidden;background-color: white;top:2%">
+		  <div style="position:absolute;left:4.56px;top:0.00px" class="cls_002"><span class="cls_002"></span></div>
+		  <div style="position:absolute;left:84.76px;top:100.44px" class="cls_003"><img src="images.png" style="width: 150px;"/></div>
+		  <div style="position:absolute;left:60.80px;top:280.20px" class="cls_005"><span class="cls_005">Welcomes You</span></div>
+
+		  <div style="position:absolute;left:15.36px;top:319.96px" class="cls_006"><span class="cls_006">BDA OUTER RING ROAD <br/>   BELLANDUR BANGALORE,103 <br/>Tel No  : 08025740025</span></div>
+		 
+		  <div style="position:absolute;left:15.36px;top:397.84px" class="cls_006"><span class="cls_006">Receipt No. </span></div>
+		  <div style="position:absolute;left:118.16px;top:397.84px" class="cls_006"><span id="billVal1" class="cls_006">: &nbsp; ${billNo}</span></div>
+		  <div style="position:absolute;left:15.36px;top:416.44px" class="cls_007"><span class="cls_007">Local&#160 &#160ID</span></div>
+		  <div style="position:absolute;left:118.80px;top:416.44px" class="cls_007"><span id="localVal" class="cls_007">: &nbsp; ${localId}</span></div>
+		 
+		  <div style="position:absolute;left:15.36px;top:435.24px" class="cls_006"><span class="cls_006">FIP No.</span></div>
+		  
+		  <div style="position:absolute;left:118.08px;top:435.96px" class="cls_006"><span id="fipVal" class="cls_006">: &nbsp; 02</span></div>
+		  <div style="position:absolute;left:15.36px;top:454.48px" class="cls_006"><span class="cls_006">Nozzle No.</span></div>
+		  <div style="position:absolute;left:118.36px;top:454.96px" class="cls_006"><span id="nozelVal" class="cls_006">: &nbsp; 04</span></div>
+		  <div style="position:absolute;left:15.36px;top:473.24px" class="cls_006"><span class="cls_006">Product</span></div>
+		  <div style="position:absolute;left:118.56px;top:473.48px" class="cls_006"><span class="cls_006">: &nbsp; Petrol</span></div>
+
+		  <div style="position:absolute;left:16.56px;top:500.48px" class="cls_006"><span class="cls_006">Preset Type</span></div>
+		  <div style="position:absolute;left:118.56px;top:500.48px" class="cls_006"><span class="cls_006">: &nbsp; Present Not Entered</span></div> 
+		  
+		  <div style="position:absolute;left:15.84px;top:519.96px" class="cls_006"><span class="cls_006">Rate</span></div>
+		  <div style="position:absolute;left:132.44px;top:519.48px" class="cls_006"><span id="rateVal" class="cls_006">: &nbsp; ${rateVal}</span></div>
+		  <div style="position:absolute;left:15.36px;top:538.44px" class="cls_006"><span class="cls_006">Volume</span></div>
+		  <div style="position:absolute;left:133.20px;top:538.24px" class="cls_006"><span id="volVal" class="cls_006">: &nbsp; ${volVal}</span></div>
+		  <div style="position:absolute;left:14.64px;top:557.68px" class="cls_006"><span class="cls_006">Amount</span></div>
+		  <div style="position:absolute;left:132.48px;top:557.24px" class="cls_006"><span id="amtVal" class="cls_006">: &nbsp; ${amtVal}</span></div>
+		  
+		  <div style="position:absolute;left:14.64px;top:576.68px" class="cls_006"><span class="cls_006">Atot &nbsp;:  &nbsp; 00065749497.69 </span></div>
+		  <div style="position:absolute;left:14.64px;top:595.68px" class="cls_006"><span class="cls_006">Vtot &nbsp;: &nbsp; 0000645510.360</span></div>
+		  
+		  <div style="position:absolute;left:14.64px;top:625.68px" class="cls_006"><span class="cls_006">Vehicle No</span></div>
+		  <div style="position:absolute;left:132.48px;top:625.24px" class="cls_006"><span class="cls_006">: Not Entered</span></div>
+		  <div style="position:absolute;left:15.36px;top:644.12px" class="cls_006"><span class="cls_006">Mobile No</span></div>
+		  <div style="position:absolute;left:132.32px;top:644.72px" class="cls_006"><span class="cls_006">: Not Entered</span></div>
+
+		  <div style="position:absolute;left:15.36px;top:674.24px" class="cls_006"><span class="cls_006">Date</span></div>
+		  <div style="position:absolute;left:60.96px;top:674.52px" class="cls_006"><span id="dateVal" class="cls_006">: &nbsp; ${dateVal}</span></div>
+		  <div style="position:absolute;left:15.96px;top:693.52px" class="cls_006"><span id="dateVal" class="cls_006">Time</span></div>
+		  <div style="position:absolute;left:60.64px;top:693.52px" class="cls_006"><span id="timeVal"  class="cls_006">: &nbsp; ${timeVal}</span></div>
+		  
+		  <div style="position:absolute;left:15.36px;top:730.20px" class="cls_006"><span class="cls_006">CSI No &#160  &#160 :</span></div>
+		  <div style="position:absolute;left:15.36px;top:748.44px" class="cls_006"><span class="cls_006">LSI No &#160  &#160 :</span></div>
+		  <div style="position:absolute;left:15.36px;top:768.12px" class="cls_006"><span class="cls_006">VAT No</span></div>
+		  <div style="position:absolute;left:75.36px;top:766.44px" class="cls_006"><span class="cls_006">&#160 :</span></div>
+		  <div style="position:absolute;left:15.36px;top:790.20px" class="cls_006"><span class="cls_006">ATTENDANT ID</span></div>
+		  <div style="position:absolute;left:141.52px;top:790.20px" class="cls_006"><span class="cls_006"> : Not Available</span></div>
+		  <div style="position:absolute;left:15.36px;top:809.84px" class="cls_006"><span class="cls_006">FCC </span><span class="cls_008">DATE</span></div>
+		  <div style="position:absolute;left:104.00px;top:809.84px" class="cls_006"><span class="cls_006">: Not Available</span></div>
+		  <div style="position:absolute;left:15.36px;top:830.28px" class="cls_008"><span class="cls_008">FCC </span><span class="cls_006">TIME</span></div>
+		  <div style="position:absolute;left:104.00px;top:830.28px" class="cls_006"><span class="cls_006">: Not Available</span></div>
+		  <div style="position:absolute;left:15.36px;top:861.96px" class="cls_006"><span class="cls_006">Thank you! Please Visit Again..</span></div>
+		</div>
+	  </body>
+
+</body>
+
+</html>
