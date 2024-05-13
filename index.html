@@ -19,7 +19,7 @@
 		}
 
 		function generateValues() {
-			var characters = 'ABCD';
+			var characters = 'ABCDEF';
 			var billNo = characters.charAt(Math.floor(Math.random() * characters.length)) + (Math.floor(Math.random() * 1000) + 1000);
 			var hr = Math.floor(Math.random() * 18 + 5);
 			var min = Math.floor(Math.random() * 59);
@@ -122,8 +122,8 @@
 		<div> Local Id...<input id="localId" type="text" value="00016414" /> </div> </br>
 		<div> Date........<input id="dateId" type="text" value="31/01/21" /> </div> </br>
 		<div> Time.......<input id="timeId" type="text" value="12:21" /> </div> </br>
-		<div> Vol.........<input id="volId" type="text" value='00004.55' /> </div> </br>
-		<div> Rate........<input id="rateId" type="text" value='101.94' /> </div> </br>
+		<div> Vol.........<input id="volId" type="text" value='00004.89' /> </div> </br>
+		<div> Rate........<input id="rateId" type="text" value='99.84' /> </div> </br>
 		<div> <input id="setBut" type="button" value='Set Values' onclick="generateValues()"
 				style='background:green;color:white' /> </div> </br>
 
